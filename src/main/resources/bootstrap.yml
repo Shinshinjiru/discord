@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: discord
+
+  cloud:
+    config:
+      uri: ${CONFIGSERVER_HOST}
+      username: root
+      password: s3cr3t
