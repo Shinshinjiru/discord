@@ -21,10 +21,13 @@ configurations {
 dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     implementation 'com.jagrosh:jda-utilities-command:3.0.5'
+    implementation 'com.jagrosh:jda-utilities-examples:3.0.5'
+    implementation 'com.jagrosh:jda-utilities-menu:3.0.5'
     implementation 'net.dv8tion:JDA:4.2.0_168'
     implementation 'org.springframework.boot:spring-boot-starter'
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
     implementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
