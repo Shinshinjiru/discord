@@ -1,3 +1,4 @@
+
 discord:
   token: ${DISCORD_TOKEN}
 
@@ -9,3 +10,24 @@ bot:
   cache: 200
   status: ONLINE
   ownerId: ${DISCORD_OWNERID}
+
+  activityStatus:
+    - type: DEFAULT
+      text: with imouto
+    - type: DEFAULT
+      text: LOL, pls kill me
+    - type: LISTENING
+      text: some good shit
+    - type: LISTENING
+      text: Chopin, based
+    - type: WATCHING
+      text: hentai
+    - type: WATCHING
+      text: anime
+    - type: WATCHING
+      text: anime (actually hentai)
+
+logging:
+  level:
+    default: INFO
+    com.manulaiko.shinshinjiru.discord: TRACE

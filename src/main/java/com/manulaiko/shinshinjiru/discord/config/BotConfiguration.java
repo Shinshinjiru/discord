@@ -5,6 +5,7 @@ import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import com.jagrosh.jdautilities.examples.command.*;
 import lombok.Data;
 import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.entities.Activity;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
@@ -28,6 +29,7 @@ public class BotConfiguration {
     private int cache;
     private OnlineStatus status;
     private String ownerId;
+    private List<Status> activityStatus;
 
     private List<Command> commands;
 
@@ -45,5 +47,11 @@ public class BotConfiguration {
                 new ServerinfoCommand(),
                 new ShutdownCommand()
         );
+    }
+
+    @Data
+    public static class Status {
+        private Activity.ActivityType type;
+        private String text;
     }
 }

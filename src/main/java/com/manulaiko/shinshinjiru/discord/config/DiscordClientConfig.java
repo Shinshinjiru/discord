@@ -11,11 +11,13 @@ import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * @author manulaiko <manulaiko@gmail.com>
  */
 @Configuration
+@EnableScheduling
 public class DiscordClientConfig {
     @Value("${discord.token}")
     private String token;
