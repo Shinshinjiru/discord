@@ -1,2 +1,11 @@
 discord:
   token: ${DISCORD_TOKEN}
+
+bot:
+  prefix: !
+  success: ✓
+  warning: ⚠
+  error: 🚫
+  cache: 200
+  status: ONLINE
+  ownerId: ${DISCORD_OWNERID}
