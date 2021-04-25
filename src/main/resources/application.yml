@@ -1,3 +1,5 @@
+api:
+  tracemoe: https://trace.moe/api
 
 discord:
   token: ${DISCORD_TOKEN}
@@ -26,6 +28,9 @@ bot:
       text: anime
     - type: WATCHING
       text: anime (actually hentai)
+
+  sauce:
+    similarityThreshold: 0.93
 
 logging:
   level:

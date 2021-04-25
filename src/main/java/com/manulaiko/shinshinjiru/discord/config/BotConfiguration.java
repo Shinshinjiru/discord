@@ -3,6 +3,7 @@ package com.manulaiko.shinshinjiru.discord.config;
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import com.jagrosh.jdautilities.examples.command.*;
+import com.manulaiko.shinshinjiru.discord.command.SauceCommand;
 import lombok.Data;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
@@ -21,6 +22,7 @@ import java.util.List;
 @Data
 public class BotConfiguration {
     private final EventWaiter eventWaiter;
+    private final SauceCommand sauceCommand;
 
     private String prefix;
     private String success;
@@ -45,7 +47,9 @@ public class BotConfiguration {
                 new PingCommand(),
                 new RoleinfoCommand(),
                 new ServerinfoCommand(),
-                new ShutdownCommand()
+                new ShutdownCommand(),
+
+                sauceCommand
         );
     }
 

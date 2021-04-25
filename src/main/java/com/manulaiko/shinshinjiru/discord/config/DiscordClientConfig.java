@@ -3,12 +3,14 @@ package com.manulaiko.shinshinjiru.discord.config;
 import com.jagrosh.jdautilities.command.CommandClient;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
+import com.manulaiko.shinshinjiru.discord.api.TraceMoe;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.utils.cache.CacheFlag;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -17,7 +19,6 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * @author manulaiko <manulaiko@gmail.com>
  */
 @Configuration
-@EnableScheduling
 public class DiscordClientConfig {
     @Value("${discord.token}")
     private String token;
