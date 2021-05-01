@@ -1,5 +1,6 @@
 api:
   tracemoe: https://trace.moe/api
+  anilist: https://graphql.anilist.co/
 
 discord:
   token: ${DISCORD_TOKEN}

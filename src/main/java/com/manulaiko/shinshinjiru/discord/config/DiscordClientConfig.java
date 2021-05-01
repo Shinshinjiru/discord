@@ -57,7 +57,6 @@ public class DiscordClientConfig {
                 .disableCache(CacheFlag.ACTIVITY, CacheFlag.CLIENT_STATUS, CacheFlag.EMOTE)
                 .setActivity(Activity.playing("loading..."))
                 .setStatus(OnlineStatus.DO_NOT_DISTURB)
-                .addEventListeners(client, eventWaiter)
                 .setBulkDeleteSplittingEnabled(true);
 
         listeners.forEach(builder::addEventListeners);

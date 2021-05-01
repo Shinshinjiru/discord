@@ -6159,18 +6159,7 @@
             {
               "name": "about",
               "description": "The bio written by user (Markdown)",
-              "args": [
-                {
-                  "name": "asHtml",
-                  "description": "Return the string in pre-parsed html instead of markdown",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Boolean",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
+              "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
@@ -7522,18 +7511,7 @@
             {
               "name": "description",
               "description": "Short description of the media's story and characters",
-              "args": [
-                {
-                  "name": "asHtml",
-                  "description": "Return the string in pre-parsed html instead of markdown",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Boolean",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
+              "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
@@ -9365,18 +9343,7 @@
             {
               "name": "description",
               "description": "A general description of the character",
-              "args": [
-                {
-                  "name": "asHtml",
-                  "description": "Return the string in pre-parsed html instead of markdown",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Boolean",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
+              "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
@@ -10159,18 +10126,7 @@
             {
               "name": "description",
               "description": "A general description of the staff member",
-              "args": [
-                {
-                  "name": "asHtml",
-                  "description": "Return the string in pre-parsed html instead of markdown",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Boolean",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
+              "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
@@ -12536,18 +12492,7 @@
             {
               "name": "body",
               "description": "The main review body text",
-              "args": [
-                {
-                  "name": "asHtml",
-                  "description": "Return the string in pre-parsed html instead of markdown",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Boolean",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
+              "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
@@ -16631,18 +16576,7 @@
             {
               "name": "message",
               "description": "The message text (Markdown)",
-              "args": [
-                {
-                  "name": "asHtml",
-                  "description": "Return the string in pre-parsed html instead of markdown",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Boolean",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
+              "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
@@ -16894,18 +16828,7 @@
             {
               "name": "text",
               "description": "The reply text",
-              "args": [
-                {
-                  "name": "asHtml",
-                  "description": "Return the string in pre-parsed html instead of markdown",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Boolean",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
+              "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
@@ -17201,18 +17124,7 @@
             {
               "name": "text",
               "description": "The status text (Markdown)",
-              "args": [
-                {
-                  "name": "asHtml",
-                  "description": "Return the string in pre-parsed html instead of markdown",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Boolean",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
+              "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
@@ -18221,18 +18133,7 @@
             {
               "name": "body",
               "description": "The text body of the thread (Markdown)",
-              "args": [
-                {
-                  "name": "asHtml",
-                  "description": "Return the string in pre-parsed html instead of markdown",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Boolean",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
+              "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
@@ -18594,18 +18495,7 @@
             {
               "name": "comment",
               "description": "The text content of the comment (Markdown)",
-              "args": [
-                {
-                  "name": "asHtml",
-                  "description": "Return the string in pre-parsed html instead of markdown",
-                  "type": {
-                    "kind": "SCALAR",
-                    "name": "Boolean",
-                    "ofType": null
-                  },
-                  "defaultValue": null
-                }
-              ],
+              "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",

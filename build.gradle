@@ -53,6 +53,7 @@ graphqlCodegen {
     ]
     generateClient = true
     generateApis = false
+    modelValidationAnnotation = ""
 }
 
 dependencies {
