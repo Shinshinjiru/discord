@@ -1,6 +1,7 @@
 plugins {
     id 'org.springframework.boot' version '2.4.5'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'io.github.kobylynskyi.graphql.codegen' version '5.1.0'
     id 'java'
 }
 
@@ -28,6 +29,32 @@ dependencyManagement {
     }
 }
 
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java', "$buildDir/generated/graphql"]
+        }
+        resources {
+            srcDirs = ['src/main/resources']
+            include '**/*'
+        }
+    }
+}
+
+compileJava.dependsOn 'graphqlCodegen'
+
+graphqlCodegen {
+    graphqlQueryIntrospectionResultPath = "$projectDir/src/main/resources/schema.graphql".toString()
+    outputDir = new File("$buildDir/generated/graphql")
+    modelPackageName = 'com.manulaiko.shinshinjiru.discord.api.model.dto'
+    packageName = 'com.manulaiko.shinshinjiru.discord.api.model'
+    customTypesMapping = [
+            DateTime: 'java.util.Date'
+    ]
+    generateClient = true
+    generateApis = false
+}
+
 dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
     implementation 'com.jagrosh:jda-utilities-command:3.0.5'
@@ -43,6 +70,7 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.12.3'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
     implementation 'com.fasterxml.jackson.core:jackson-core:2.12.3'
+    implementation 'io.github.kobylynskyi:graphql-java-codegen:5.1.0'
 }
 
 test {
