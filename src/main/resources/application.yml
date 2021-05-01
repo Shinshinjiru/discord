@@ -3,6 +3,8 @@ api:
 
 discord:
   token: ${DISCORD_TOKEN}
+  emoji:
+    spaghetti: U+1f35d
 
 bot:
   prefix: !

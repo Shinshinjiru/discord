@@ -6,6 +6,8 @@ import com.manulaiko.shinshinjiru.discord.exception.NoSauceFoundException;
 import com.manulaiko.shinshinjiru.discord.service.SauceService;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.entities.MessageEmbed;
 import org.springframework.stereotype.Component;
 
 /**
@@ -36,32 +38,34 @@ public class SauceCommand extends Command {
      */
     @Override
     protected void execute(CommandEvent event) {
-        if (event.getMessage().getAttachments().isEmpty()) {
-            event.replyError("Attach an image ffs");
+        try {
+            event.reply(getSauce(event.getMessage()));
+        } catch (Exception e) {
+            event.replyError(e.getMessage());
+        }
+    }
 
-            return;
+    public MessageEmbed getSauce(Message message) {
+        if (message.getAttachments().isEmpty()) {
+            throw new IllegalArgumentException("Attach an image ffs");
         }
 
-        if (event.getMessage().getAttachments().size() > 1) {
-            event.replyError("Just one, pls, don't make this more complicated than necessary");
-
-            return;
+        if (message.getAttachments().size() > 1) {
+            throw new IllegalArgumentException("Just one, pls, don't make this more complicated than necessary");
         }
 
-        var img = event.getMessage().getAttachments().get(0);
+        var img = message.getAttachments().get(0);
 
         if (!img.isImage()) {
-            event.replyError("Pls, image, image, IMAGE");
-
-            return;
+            throw new IllegalArgumentException("Pls, image, image, IMAGE");
         }
 
         try {
-            event.reply(service.search(img.getUrl()));
+            return service.search(img.getUrl());
         } catch(NoSauceFoundException e) {
-            event.replyError("No sauce found, better luck next time :)");
+            throw new IllegalArgumentException("No sauce found, better luck next time :)");
         } catch (Exception e) {
-            event.replyError("Couldn't find sauce\n```"+ e.getMessage() +"```");
+            throw new IllegalArgumentException("Couldn't find sauce\n```"+ e.getMessage() +"```");
         }
     }
 }

@@ -2,7 +2,6 @@ package com.manulaiko.shinshinjiru.discord.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
-import org.springframework.boot.jackson.JsonComponent;
 
 import java.util.List;
 
