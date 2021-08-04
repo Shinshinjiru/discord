@@ -49,20 +49,9 @@ import java.util.List;
  */
 @Data
 public class TraceMoeResponse {
-    private int RawDocsCount;
-    private int RawDocsSearchTime;
-    private int ReRankSearchTime;
-    private boolean CacheHit;
-    private int trial;
-    private int limit;
-    private int quota;
-    private List<Doc> docs;
-
-    @JsonProperty("limit_ttl")
-    private int limitTtl;
-
-    @JsonProperty("quota_ttl")
-    private int quotaTtl;
+    private long frameCount;
+    private String error;
+    private List<Doc> result;
 
     /**
      *   "docs": [
@@ -93,35 +82,11 @@ public class TraceMoeResponse {
     public static class Doc {
         private float from;
         private float to;
-        private String season;
-        private String anime;
         private String filename;
         private int episode;
-        private String tokenthumb;
+        private String video;
+        private String image;
         private double similarity;
-        private String title;
-        private int malId;
-        private List<String> synonyms;
-
-        @JsonProperty("synonyms_chinese")
-        private List<String> synonymsChinese;
-
-        @JsonProperty("is_adult")
-        private boolean isAdult;
-
-        @JsonProperty("title_native")
-        private String titleNative;
-
-        @JsonProperty("title_chinese")
-        private String titleChinese;
-
-        @JsonProperty("title_english")
-        private String titleEnglish;
-
-        @JsonProperty("title_romaji")
-        private String titleRomaji;
-
-        @JsonProperty("anilist_id")
-        private int anilistId;
+        private int anilist;
     }
 }

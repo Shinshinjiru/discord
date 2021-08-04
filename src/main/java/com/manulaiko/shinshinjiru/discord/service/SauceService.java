@@ -6,6 +6,7 @@ import com.manulaiko.shinshinjiru.discord.api.TraceMoe;
 import com.manulaiko.shinshinjiru.discord.api.model.dto.MediaCoverImageResponseProjection;
 import com.manulaiko.shinshinjiru.discord.api.model.dto.MediaQueryRequest;
 import com.manulaiko.shinshinjiru.discord.api.model.dto.MediaResponseProjection;
+import com.manulaiko.shinshinjiru.discord.api.model.dto.MediaTitleResponseProjection;
 import com.manulaiko.shinshinjiru.discord.api.query.Media;
 import com.manulaiko.shinshinjiru.discord.exception.NoSauceFoundException;
 import lombok.Data;
@@ -37,19 +38,24 @@ public class SauceService {
         var builder = new EmbedBuilder();
 
         var response = traceMoe.search(url);
-        if (response.getDocs().size() < 1 || response.getDocs().get(0).getSimilarity() < similarityThreshold) {
+        if (response.getResult().size() < 1 || response.getResult().get(0).getSimilarity() < similarityThreshold) {
             throw new NoSauceFoundException();
         }
 
-        var result = response.getDocs().get(0);
+        var result = response.getResult().get(0);
 
         var request = new MediaQueryRequest.Builder()
-                .setId(result.getAnilistId());
+                .setId(result.getAnilist());
 
         var media = aniListService.query(
                 new GraphQLRequest(
                         request.build(),
                         new MediaResponseProjection()
+                                .title(
+                                        new MediaTitleResponseProjection()
+                                                .english()
+                                                .userPreferred()
+                                )
                                 .description()
                                 .episodes()
                                 .season()
@@ -65,11 +71,11 @@ public class SauceService {
                 .getData()
                 .get("Media");
 
-        return builder.addField("Title", result.getTitleRomaji(), true)
+        return builder.addField("Title", media.getTitle().getUserPreferred(), true)
                 .addField("Found at episode", result.getEpisode() + "/"+ media.getEpisodes(), true)
                 .addField("Season", media.getSeason().toString().toLowerCase() + " " + media.getSeasonYear(), true)
                 .addField("Similarity", String.format("%.2f%%", result.getSimilarity() * 100), true)
-                .addField("AniList", "https://anilist.co/anime/" + result.getAnilistId(), true)
+                .addField("AniList", "https://anilist.co/anime/" + result.getAnilist(), true)
                 .addField("Description", "```\n" + media.getDescription().replaceAll("<br\\s?/?>", "\n") + "\n```", false)
                 .setThumbnail(media.getCoverImage().getMedium())
                 .setColor(Color.decode(media.getCoverImage().getColor()))
