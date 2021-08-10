@@ -83,7 +83,7 @@ public class TraceMoeResponse {
         private float from;
         private float to;
         private String filename;
-        private int episode;
+        private String episode;
         private String video;
         private String image;
         private double similarity;
