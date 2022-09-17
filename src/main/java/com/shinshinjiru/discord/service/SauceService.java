@@ -80,7 +80,7 @@ public class SauceService {
                 .addField("Description", "```\n" + media.getDescription().replaceAll("<br\\s?/?>", "\n") + "\n```", false)
                 .setThumbnail(media.getCoverImage().getMedium());
 
-        if (!StringUtils.isEmpty(media.getCoverImage().getColor())) {
+        if (!StringUtils.hasText(media.getCoverImage().getColor())) {
             b.setColor(Color.decode(media.getCoverImage().getColor()));
         }
 

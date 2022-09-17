@@ -21,7 +21,7 @@ public class MessageUtils {
     private final CommandClient client;
 
     public void reply(GenericMessageEvent event, MessageEmbed message) {
-        event.getChannel().sendMessage(message).queue();
+        event.getChannel().sendMessageEmbeds(message).queue();
     }
 
     public void reply(GenericMessageEvent event, String message) {
