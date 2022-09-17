@@ -1,6 +1,5 @@
-package com.manulaiko.shinshinjiru.discord;
+package com.shinshinjiru.discord;
 
-import com.manulaiko.shinshinjiru.discord.api.TraceMoe;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;

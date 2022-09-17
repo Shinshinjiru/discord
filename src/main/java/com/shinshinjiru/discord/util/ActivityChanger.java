@@ -1,6 +1,6 @@
-package com.manulaiko.shinshinjiru.discord.util;
+package com.shinshinjiru.discord.util;
 
-import com.manulaiko.shinshinjiru.discord.config.BotConfiguration;
+import com.shinshinjiru.discord.config.BotConfiguration;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import net.dv8tion.jda.api.JDA;
