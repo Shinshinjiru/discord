@@ -9,84 +9,78 @@ plugins {
 group 'com.shinshinjiru'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = '18'
-def jdaVersion = '5.0.0-alpha.18' //
-def jdaUtilitiesVersion = '2.0-SNAPSHOT'
-def jacksonVersion = '2.13.4'
-def graphQlVersion = '5.4.1'
-
-compileJava.options.encoding = 'UTF-8'
-
-repositories {
-    mavenCentral()
-    jcenter()
-    maven {
-        url "https://m2.dv8tion.net/releases"
-    }
-    maven {
-        url "https://m2.chew.pro/snapshots"
-    }
-}
-
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
 }
 
-ext {
-    set('springCloudVersion', "2021.0.4")
-}
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.github.kobylynskyi.graphql.codegen'
+    apply plugin: 'com.github.johnrengelman.shadow'
 
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-    }
-}
+    sourceCompatibility = '18'
+    def jdaVersion = '5.0.0-alpha.18' //
+    def jdaUtilitiesVersion = '2.0-SNAPSHOT'
+    def jacksonVersion = '2.13.4'
+    def graphQlVersion = '5.4.1'
 
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src/main/java', "$buildDir/generated/graphql"]
+    compileJava.options.encoding = 'UTF-8'
+
+    repositories {
+        mavenCentral()
+        jcenter()
+        maven {
+            url "https://m2.dv8tion.net/releases"
         }
-        resources {
-            srcDirs = ['src/main/resources']
-            include '**/*'
+        maven {
+            url "https://m2.chew.pro/snapshots"
         }
     }
-}
 
-compileJava.dependsOn 'graphqlCodegen'
+    ext {
+        set('springCloudVersion', "2021.0.4")
+    }
 
-graphqlCodegen {
-    graphqlQueryIntrospectionResultPath = "$projectDir/src/main/resources/schema.graphql".toString()
-    outputDir = new File("$buildDir/generated/graphql")
-    modelPackageName = 'com.shinshinjiru.discord.api.model.dto'
-    packageName = 'com.shinshinjiru.discord.api.model'
-    customTypesMapping = [
-            DateTime: 'java.util.Date'
-    ]
-    generateClient = true
-    generateApis = false
-    modelValidationAnnotation = ""
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+
+    sourceSets {
+        main {
+            resources {
+                srcDirs = ['src/main/resources']
+                include '**/*'
+            }
+        }
+    }
+
+    dependencies {
+        testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
+        implementation "pw.chew:jda-chewtils:$jdaUtilitiesVersion"
+        implementation "net.dv8tion:JDA:$jdaVersion"
+        implementation "org.springframework.boot:spring-boot-starter"
+        compileOnly "org.projectlombok:lombok"
+        annotationProcessor 'org.projectlombok:lombok'
+        annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+        implementation "org.springframework.boot:spring-boot-starter-test"
+        implementation "org.springframework.cloud:spring-cloud-starter-openfeign"
+        implementation "com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion"
+        implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+        implementation "com.fasterxml.jackson.core:jackson-core:$jacksonVersion"
+        implementation "io.github.kobylynskyi:graphql-java-codegen:$graphQlVersion"
+    }
+
+    test {
+        useJUnitPlatform()
+    }
 }
 
 dependencies {
-    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
-    implementation "pw.chew:jda-chewtils:$jdaUtilitiesVersion"
-    implementation "net.dv8tion:JDA:$jdaVersion"
-    implementation "org.springframework.boot:spring-boot-starter"
-    compileOnly "org.projectlombok:lombok"
-    annotationProcessor 'org.projectlombok:lombok'
-    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
-    implementation "org.springframework.boot:spring-boot-starter-test"
-    implementation "org.springframework.cloud:spring-cloud-starter-openfeign"
-    implementation "com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion"
-    implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
-    implementation "com.fasterxml.jackson.core:jackson-core:$jacksonVersion"
-    implementation "io.github.kobylynskyi:graphql-java-codegen:$graphQlVersion"
-}
-
-test {
-    useJUnitPlatform()
+    implementation project(":sauce")
 }

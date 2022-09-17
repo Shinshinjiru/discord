@@ -1,6 +1,5 @@
 package com.shinshinjiru.discord.api;
 
-
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLRequest;
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResult;
 import com.shinshinjiru.discord.api.model.dto.MediaListCollection;

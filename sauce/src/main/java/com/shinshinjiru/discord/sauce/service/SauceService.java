@@ -1,4 +1,4 @@
-package com.shinshinjiru.discord.service;
+package com.shinshinjiru.discord.sauce.service;
 
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLRequest;
 import com.shinshinjiru.discord.api.AniListService;
@@ -8,7 +8,7 @@ import com.shinshinjiru.discord.api.model.dto.MediaQueryRequest;
 import com.shinshinjiru.discord.api.model.dto.MediaResponseProjection;
 import com.shinshinjiru.discord.api.model.dto.MediaTitleResponseProjection;
 import com.shinshinjiru.discord.api.query.Media;
-import com.shinshinjiru.discord.exception.NoSauceFoundException;
+import com.shinshinjiru.discord.sauce.exception.NoSauceFoundException;
 import lombok.Data;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;

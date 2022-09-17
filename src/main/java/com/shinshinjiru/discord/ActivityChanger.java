@@ -1,4 +1,4 @@
-package com.shinshinjiru.discord.util;
+package com.shinshinjiru.discord;
 
 import com.shinshinjiru.discord.config.BotConfiguration;
 import lombok.Data;

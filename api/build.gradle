@@ -1,0 +1,25 @@
+group 'com.shinshinjiru.discord'
+version '1.0-SNAPSHOT'
+
+compileJava.dependsOn 'graphqlCodegen'
+
+graphqlCodegen {
+    graphqlQueryIntrospectionResultPath = "$projectDir/src/main/resources/schema.graphql".toString()
+    outputDir = new File("$buildDir/generated/graphql")
+    modelPackageName = 'com.shinshinjiru.discord.api.model.dto'
+    packageName = 'com.shinshinjiru.discord.api.model'
+    customTypesMapping = [
+            DateTime: 'java.util.Date'
+    ]
+    generateClient = true
+    generateApis = false
+    modelValidationAnnotation = ""
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java', "$buildDir/generated/graphql"]
+        }
+    }
+}
