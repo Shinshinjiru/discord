@@ -3,7 +3,7 @@ package com.shinshinjiru.discord.config;
 import com.jagrosh.jdautilities.command.CommandClient;
 import com.jagrosh.jdautilities.command.CommandClientBuilder;
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
-import com.shinshinjiru.discord.listener.SauceReactionListener;
+import com.shinshinjiru.discord.sauce.listener.SauceReactionListener;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;

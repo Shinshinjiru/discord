@@ -1,4 +1,4 @@
-package com.shinshinjiru.discord.util;
+package com.shinshinjiru.discord.commons.util;
 
 import com.jagrosh.jdautilities.command.CommandClient;
 import lombok.RequiredArgsConstructor;

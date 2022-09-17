@@ -1,7 +1,7 @@
-package com.shinshinjiru.discord.listener;
+package com.shinshinjiru.discord.sauce.listener;
 
-import com.shinshinjiru.discord.command.SauceCommand;
-import com.shinshinjiru.discord.util.MessageUtils;
+import com.shinshinjiru.discord.sauce.command.SauceCommand;
+import com.shinshinjiru.discord.commons.util.MessageUtils;
 import lombok.RequiredArgsConstructor;
 import net.dv8tion.jda.api.events.message.react.MessageReactionAddEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
