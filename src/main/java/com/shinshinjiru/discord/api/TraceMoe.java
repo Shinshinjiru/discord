@@ -1,6 +1,6 @@
-package com.manulaiko.shinshinjiru.discord.api;
+package com.shinshinjiru.discord.api;
 
-import com.manulaiko.shinshinjiru.discord.api.dto.TraceMoeResponse;
+import com.shinshinjiru.discord.api.dto.TraceMoeResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

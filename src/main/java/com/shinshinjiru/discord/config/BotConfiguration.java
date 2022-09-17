@@ -1,9 +1,9 @@
-package com.manulaiko.shinshinjiru.discord.config;
+package com.shinshinjiru.discord.config;
 
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import com.jagrosh.jdautilities.examples.command.*;
-import com.manulaiko.shinshinjiru.discord.command.SauceCommand;
+import com.shinshinjiru.discord.command.SauceCommand;
 import lombok.Data;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;

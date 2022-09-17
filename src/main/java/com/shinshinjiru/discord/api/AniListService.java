@@ -1,11 +1,11 @@
-package com.manulaiko.shinshinjiru.discord.api;
+package com.shinshinjiru.discord.api;
 
 
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLRequest;
 import com.kobylynskyi.graphql.codegen.model.graphql.GraphQLResult;
-import com.manulaiko.shinshinjiru.discord.api.model.dto.MediaListCollection;
-import com.manulaiko.shinshinjiru.discord.api.model.dto.User;
-import com.manulaiko.shinshinjiru.discord.api.dto.APIToken;
+import com.shinshinjiru.discord.api.model.dto.MediaListCollection;
+import com.shinshinjiru.discord.api.model.dto.User;
+import com.shinshinjiru.discord.api.dto.APIToken;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;

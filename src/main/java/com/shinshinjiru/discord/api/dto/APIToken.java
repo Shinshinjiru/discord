@@ -1,4 +1,4 @@
-package com.manulaiko.shinshinjiru.discord.api.dto;
+package com.shinshinjiru.discord.api.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
