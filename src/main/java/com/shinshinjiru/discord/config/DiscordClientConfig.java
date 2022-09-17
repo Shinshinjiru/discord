@@ -54,7 +54,7 @@ public class DiscordClientConfig {
     public JDA jda(CommandClient client, EventWaiter eventWaiter, List<EventListener> listeners) throws Exception {
         var builder = JDABuilder.createDefault(token)
                 .enableCache(CacheFlag.MEMBER_OVERRIDES)
-                .disableCache(CacheFlag.ACTIVITY, CacheFlag.CLIENT_STATUS, CacheFlag.EMOTE)
+                .disableCache(CacheFlag.ACTIVITY, CacheFlag.CLIENT_STATUS, CacheFlag.EMOJI)
                 .setActivity(Activity.playing("loading..."))
                 .setStatus(OnlineStatus.DO_NOT_DISTURB)
                 .setBulkDeleteSplittingEnabled(true);

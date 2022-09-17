@@ -17,9 +17,9 @@ bot:
   ownerId: ${DISCORD_OWNERID}
 
   activityStatus:
-    - type: DEFAULT
+    - type: PLAYING
       text: with imouto
-    - type: DEFAULT
+    - type: PLAYING
       text: LOL, pls kill me
     - type: LISTENING
       text: some good shit

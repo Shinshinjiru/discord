@@ -30,8 +30,10 @@ public class SauceReactionListener extends ListenerAdapter {
      */
     @Override
     public void onMessageReactionAdd(MessageReactionAddEvent event) {
-        var reaction = event.getReactionEmote();
-        if (!reaction.isEmoji() || !reaction.getAsCodepoints().equalsIgnoreCase(spaghet)) {
+        var reaction = event.getReaction()
+                .getEmoji()
+                .getAsReactionCode();
+        if (!reaction.equalsIgnoreCase(spaghet)) {
             return;
         }
 

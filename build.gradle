@@ -1,16 +1,31 @@
 plugins {
-    id 'org.springframework.boot' version '2.4.5'
-    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-    id 'io.github.kobylynskyi.graphql.codegen' version '5.1.0'
+    id 'org.springframework.boot' version '2.7.3'
+    id 'io.spring.dependency-management' version '1.0.13.RELEASE'
+    id 'io.github.kobylynskyi.graphql.codegen' version '5.5.0'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
     id 'java'
 }
 
-group 'com.manulaiko.shinshinjiru'
+group 'com.shinshinjiru'
 version '1.0-SNAPSHOT'
+
+sourceCompatibility = '18'
+def jdaVersion = '5.0.0-alpha.18' //
+def jdaUtilitiesVersion = '2.0-SNAPSHOT'
+def jacksonVersion = '2.13.4'
+def graphQlVersion = '5.4.1'
+
+compileJava.options.encoding = 'UTF-8'
 
 repositories {
     mavenCentral()
     jcenter()
+    maven {
+        url "https://m2.dv8tion.net/releases"
+    }
+    maven {
+        url "https://m2.chew.pro/snapshots"
+    }
 }
 
 configurations {
@@ -20,7 +35,7 @@ configurations {
 }
 
 ext {
-    set('springCloudVersion', "2020.0.2")
+    set('springCloudVersion', "2021.0.4")
 }
 
 dependencyManagement {
@@ -46,8 +61,8 @@ compileJava.dependsOn 'graphqlCodegen'
 graphqlCodegen {
     graphqlQueryIntrospectionResultPath = "$projectDir/src/main/resources/schema.graphql".toString()
     outputDir = new File("$buildDir/generated/graphql")
-    modelPackageName = 'com.manulaiko.shinshinjiru.discord.api.model.dto'
-    packageName = 'com.manulaiko.shinshinjiru.discord.api.model'
+    modelPackageName = 'com.shinshinjiru.discord.api.model.dto'
+    packageName = 'com.shinshinjiru.discord.api.model'
     customTypesMapping = [
             DateTime: 'java.util.Date'
     ]
@@ -57,21 +72,19 @@ graphqlCodegen {
 }
 
 dependencies {
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
-    implementation 'com.jagrosh:jda-utilities-command:3.0.5'
-    implementation 'com.jagrosh:jda-utilities-examples:3.0.5'
-    implementation 'com.jagrosh:jda-utilities-menu:3.0.5'
-    implementation 'net.dv8tion:JDA:4.2.0_168'
-    implementation 'org.springframework.boot:spring-boot-starter'
-    compileOnly 'org.projectlombok:lombok'
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
+    implementation "pw.chew:jda-chewtils:$jdaUtilitiesVersion"
+    implementation "net.dv8tion:JDA:$jdaVersion"
+    implementation "org.springframework.boot:spring-boot-starter"
+    compileOnly "org.projectlombok:lombok"
     annotationProcessor 'org.projectlombok:lombok'
     annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
-    implementation 'org.springframework.boot:spring-boot-starter-test'
-    implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'
-    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.12.3'
-    implementation 'com.fasterxml.jackson.core:jackson-databind:2.12.3'
-    implementation 'com.fasterxml.jackson.core:jackson-core:2.12.3'
-    implementation 'io.github.kobylynskyi:graphql-java-codegen:5.1.0'
+    implementation "org.springframework.boot:spring-boot-starter-test"
+    implementation "org.springframework.cloud:spring-cloud-starter-openfeign"
+    implementation "com.fasterxml.jackson.core:jackson-annotations:$jacksonVersion"
+    implementation "com.fasterxml.jackson.core:jackson-databind:$jacksonVersion"
+    implementation "com.fasterxml.jackson.core:jackson-core:$jacksonVersion"
+    implementation "io.github.kobylynskyi:graphql-java-codegen:$graphQlVersion"
 }
 
 test {
