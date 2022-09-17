@@ -5,7 +5,7 @@ api:
 discord:
   token: ${DISCORD_TOKEN}
   emoji:
-    spaghetti: U+1f35d
+    spaghetti: 🍝
 
 bot:
   prefix: !
@@ -38,4 +38,4 @@ bot:
 logging:
   level:
     default: INFO
-    com.manulaiko.shinshinjiru.discord: TRACE
+    com.shinshinjiru.discord: TRACE
