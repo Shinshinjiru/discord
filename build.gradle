@@ -83,4 +83,5 @@ allprojects {
 
 dependencies {
     implementation project(":sauce")
+    implementation project(":nhentai")
 }

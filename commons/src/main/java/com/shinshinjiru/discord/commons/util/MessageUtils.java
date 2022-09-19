@@ -5,12 +5,15 @@ import lombok.RequiredArgsConstructor;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.events.message.GenericMessageEvent;
+import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * Message utils.
  * ==============
- *
+ * <p>
  * Class with boilerplate functions for JDA messy event system.
  *
  * @author manulaiko <manulaiko@gmail.com>
@@ -20,8 +23,16 @@ import org.springframework.stereotype.Component;
 public class MessageUtils {
     private final CommandClient client;
 
+    public void reply(GenericMessageEvent event, MessageEmbed message, List<Button> buttons) {
+        event.getChannel().sendMessageEmbeds(message).addActionRow(buttons).queue();
+    }
+
     public void reply(GenericMessageEvent event, MessageEmbed message) {
         event.getChannel().sendMessageEmbeds(message).queue();
+    }
+
+    public void reply(GenericMessageEvent event, String message, List<Button> buttons) {
+        event.getChannel().sendMessage(message).addActionRow(buttons).queue();
     }
 
     public void reply(GenericMessageEvent event, String message) {

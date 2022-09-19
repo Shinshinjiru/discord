@@ -1,4 +1,4 @@
-package com.shinshinjiru.discord.sauce.exception;
+package com.shinshinjiru.discord.sauce;
 
 /**
  * No sauce found exception.

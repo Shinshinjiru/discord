@@ -1,6 +1,3 @@
-group 'com.shinshinjiru.discord'
-version '1.0-SNAPSHOT'
-
 compileJava.dependsOn 'graphqlCodegen'
 
 graphqlCodegen {
