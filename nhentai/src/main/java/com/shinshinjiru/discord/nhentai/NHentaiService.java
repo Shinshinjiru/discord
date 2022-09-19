@@ -44,6 +44,10 @@ public class NHentaiService {
         return String.format("https://t.nhentai.net/galleries/%s/cover.jpg", media);
     }
 
+    public String url(NHentaiMedia media) {
+        return String.format("https://nhentai.net/g/%d", media.getId());
+    }
+
     private String extension(NHentaiMedia.Image image) {
         return switch (image.getT()) {
             case "p" -> "png";
@@ -54,6 +58,7 @@ public class NHentaiService {
 
     public MessageEmbed buildMessage(NHentaiMedia media) {
         var tags = media.getTags().stream().collect(Collectors.groupingBy(NHentaiMedia.Tag::getType));
+        var url = url(media);
 
         var tagsText = new StringBuilder();
         tagsText.append("```\n");
@@ -73,8 +78,8 @@ public class NHentaiService {
         tagsText.append("```");
 
         var builder = new EmbedBuilder();
-        builder.setTitle(media.getTitle().getEnglish())
-                .setAuthor(String.valueOf(media.getId()))
+        builder.setTitle(media.getTitle().getEnglish(), url)
+                .setAuthor(String.valueOf(media.getId()), url)
                 .setFooter(String.format("Media ID: %s, Current Page: %d/%d", media.getMediaId(), 0, media.getNumPages()))
                 .setImage(cover(media))
                 .setThumbnail(thumbnail(media))
