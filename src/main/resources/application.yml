@@ -1,6 +1,7 @@
 api:
   tracemoe: https://api.trace.moe/
   anilist: https://graphql.anilist.co/
+  nhentai: https://translate.google.com
 
 discord:
   token: ${DISCORD_TOKEN}

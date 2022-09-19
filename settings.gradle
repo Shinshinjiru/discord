@@ -1,6 +1,6 @@
 rootProject.name = 'shinshinjiru-discord'
 include 'sauce'
 include 'commons'
-include 'anilist'
 include 'api'
+include 'nhentai'
 

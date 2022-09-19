@@ -1,9 +1,7 @@
-package com.shinshinjiru.discord.sauce.command;
+package com.shinshinjiru.discord.sauce;
 
 import com.jagrosh.jdautilities.command.Command;
 import com.jagrosh.jdautilities.command.CommandEvent;
-import com.shinshinjiru.discord.sauce.exception.NoSauceFoundException;
-import com.shinshinjiru.discord.sauce.service.SauceService;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import net.dv8tion.jda.api.entities.Message;
