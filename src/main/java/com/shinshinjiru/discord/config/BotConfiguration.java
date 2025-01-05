@@ -5,13 +5,13 @@ import com.jagrosh.jdautilities.commons.waiter.EventWaiter;
 import com.jagrosh.jdautilities.examples.command.*;
 import com.shinshinjiru.discord.sauce.SauceCommand;
 import com.shinshinjiru.discord.nhentai.NHentaiCommand;
+import jakarta.annotation.PostConstruct;
 import lombok.Data;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.PostConstruct;
 import java.awt.*;
 import java.util.List;
 
