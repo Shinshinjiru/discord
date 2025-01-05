@@ -1,8 +1,8 @@
 plugins {
-    id 'org.springframework.boot' version '2.7.3'
-    id 'io.spring.dependency-management' version '1.0.13.RELEASE'
-    id 'io.github.kobylynskyi.graphql.codegen' version '5.5.0'
-    id 'com.github.johnrengelman.shadow' version '5.2.0'
+    id 'org.springframework.boot' version '3.4.1'
+    id 'io.spring.dependency-management' version '1.1.7'
+    id 'io.github.kobylynskyi.graphql.codegen' version '5.10.0'
+    id 'com.github.johnrengelman.shadow' version '8.1.0'
     id 'java'
 }
 
@@ -22,27 +22,32 @@ allprojects {
     apply plugin: 'io.github.kobylynskyi.graphql.codegen'
     apply plugin: 'com.github.johnrengelman.shadow'
 
-    sourceCompatibility = '18'
-    def jdaVersion = '5.0.0-alpha.18' //
-    def jdaUtilitiesVersion = '2.0-SNAPSHOT'
-    def jacksonVersion = '2.13.4'
-    def graphQlVersion = '5.4.1'
+    def jdaVersion = '5.0.2' //
+    def jdaUtilitiesVersion = '2.0'
+    def jacksonVersion = '2.18.2'
+    def graphQlVersion = '5.10.0'
 
     compileJava.options.encoding = 'UTF-8'
 
     repositories {
         mavenCentral()
-        jcenter()
         maven {
             url "https://m2.dv8tion.net/releases"
         }
         maven {
-            url "https://m2.chew.pro/snapshots"
+            url "https://m2.chew.pro/releases"
         }
     }
 
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(23)
+        }
+    }
+
+
     ext {
-        set('springCloudVersion', "2021.0.4")
+        set('springCloudVersion', "2024.0.0")
     }
 
     dependencyManagement {

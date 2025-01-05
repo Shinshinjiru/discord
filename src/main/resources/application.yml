@@ -10,9 +10,9 @@ discord:
 
 bot:
   prefix: !
-  success: ✓
-  warning: ⚠
-  error: 🚫
+  success: "U+2705"
+  warning: "U+26A0"
+  error: "U+1F6AB"
   cache: 200
   status: ONLINE
   ownerId: ${DISCORD_OWNERID}
