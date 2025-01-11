@@ -1,14 +1,18 @@
 package com.shinshinjiru.discord.nhentai;
 
 import com.shinshinjiru.discord.commons.util.MessageUtils;
+import feign.FeignException;
 import lombok.RequiredArgsConstructor;
 import net.dv8tion.jda.api.entities.emoji.Emoji;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
+import net.dv8tion.jda.api.utils.FileUpload;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Component;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 
 @Component
@@ -24,15 +28,19 @@ public class NHentaiIdListener extends ListenerAdapter {
             return;
         }
 
-        var media = service.media(Integer.parseInt(msg));
+        try {
+            var media = service.media(Integer.parseInt(msg));
 
-        var buttons = new ArrayList<Button>();
-        buttons.add(Button.primary("nhentai:first_page", Emoji.fromUnicode("⏪")));
-        buttons.add(Button.primary("nhentai:previous_page", Emoji.fromUnicode("◀")));
-        buttons.add(Button.danger("nhentai:cancel", Emoji.fromUnicode("❌")));
-        buttons.add(Button.primary("nhentai:next_page", Emoji.fromUnicode("▶")));
-        buttons.add(Button.primary("nhentai:last_page", Emoji.fromUnicode("⏩")));
+            var buttons = new ArrayList<Button>();
+            buttons.add(Button.primary("nhentai:first_page", Emoji.fromUnicode("⏪")));
+            buttons.add(Button.primary("nhentai:previous_page", Emoji.fromUnicode("◀")));
+            buttons.add(Button.danger("nhentai:cancel", Emoji.fromUnicode("❌")));
+            buttons.add(Button.primary("nhentai:next_page", Emoji.fromUnicode("▶")));
+            buttons.add(Button.primary("nhentai:last_page", Emoji.fromUnicode("⏩")));
 
-        u.reply(event, service.buildMessage(media), buttons);
+            u.reply(event, service.buildMessage(media), buttons);
+        } catch (FeignException.NotFound e) {
+            u.replyError(event, "Couldn't find nuclear code :(");
+        }
     }
 }

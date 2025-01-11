@@ -6,8 +6,11 @@ import com.shinshinjiru.discord.api.dto.NHentaiResult;
 import lombok.RequiredArgsConstructor;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageEmbed;
+import net.dv8tion.jda.api.utils.FileUpload;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
@@ -25,23 +28,23 @@ public class NHentaiService {
     }
 
     public String page(int mediaId, int page) {
-        return String.format("https://i.nhentai.net/galleries/%s/%s.jpg", mediaId, page);
+        return String.format("https://i1.nhentai.net/galleries/%s/%s.jpg", mediaId, page);
     }
 
     public String page(NHentaiMedia media, int page) {
-        return String.format("https://i.nhentai.net/galleries/%s/%s.%s", media.getMediaId(), page, extension(media.getImages().getPages().get(page - 1)));
+        return String.format("https://i1.nhentai.net/galleries/%s/%s.%s", media.getMediaId(), page, extension(media.getImages().getPages().get(page - 1)));
     }
 
     public String thumbnail(NHentaiMedia media) {
-        return String.format("https://t.nhentai.net/galleries/%s/thumb.%s", media.getMediaId(), extension(media.getImages().getThumbnail()));
+        return String.format("https://t1.nhentai.net/galleries/%s/thumb.%s", media.getMediaId(), extension(media.getImages().getThumbnail()));
     }
 
     public String cover(NHentaiMedia media) {
-        return String.format("https://t.nhentai.net/galleries/%s/cover.%s", media.getMediaId(), extension(media.getImages().getCover()));
+        return String.format("https://t1.nhentai.net/galleries/%s/cover.%s", media.getMediaId(), extension(media.getImages().getCover()));
     }
 
     public String cover(int media) {
-        return String.format("https://t.nhentai.net/galleries/%s/cover.jpg", media);
+        return String.format("https://t1.nhentai.net/galleries/%s/cover.jpg", media);
     }
 
     public String url(NHentaiMedia media) {

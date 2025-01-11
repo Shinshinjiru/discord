@@ -1,7 +1,7 @@
 api:
   tracemoe: https://api.trace.moe/
   anilist: https://graphql.anilist.co/
-  nhentai: https://translate.google.com
+  nhentai: https://nhentai.net/api
 
 discord:
   token: ${DISCORD_TOKEN}
@@ -10,9 +10,9 @@ discord:
 
 bot:
   prefix: !
-  success: "U+2705"
-  warning: "U+26A0"
-  error: "U+1F6AB"
+  success: "✅"
+  warning: "⚠"
+  error: "🚫"
   cache: 200
   status: ONLINE
   ownerId: ${DISCORD_OWNERID}
