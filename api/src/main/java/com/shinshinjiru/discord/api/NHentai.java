@@ -20,18 +20,18 @@ import java.util.List;
  */
 @FeignClient(name = "nhentai", url = "${api.nhentai}")
 public interface NHentai {
-    @GetMapping("/translate?u=https://nhentai.net/api/galleries/search")
+    @GetMapping("/galleries/search")
     NHentaiResult search(@RequestParam("query") String query, @RequestParam("page") int page, @RequestParam("sort") String sort);
 
-    @GetMapping("/translate?u=https://nhentai.net/api/galleries/tagged")
+    @GetMapping("/galleries/tagged")
     NHentaiResult tagged(@RequestParam("tag") String tag, @RequestParam("page") int page, @RequestParam("sort") String sort);
 
-    @GetMapping("/translate?u=https://nhentai.net/api/gallery/{id}/related")
+    @GetMapping("/gallery/{id}/related")
     NHentaiResult tagged(@PathVariable("id") int id);
 
-    @GetMapping("/translate?u=https://nhentai.net/api/gallery/{id}/comments")
+    @GetMapping("/gallery/{id}/comments")
     List<NHentaiComment> comments(@PathVariable("id") int id);
 
-    @GetMapping("/translate?u=https://nhentai.net/api/gallery/{id}")
+    @GetMapping("/gallery/{id}")
     NHentaiMedia media(@PathVariable("id") int id);
 }

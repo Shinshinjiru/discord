@@ -43,7 +43,11 @@ public class BotConfiguration {
                 new AboutCommand(
                         Color.CYAN,
                         "Shinshinjiru's discord bot",
-                        new String[] {"Sync your list", "Find sauce (stop asking, pls)"}
+                        new String[] {
+                                "Sync your list",
+                                "Find sauce (stop asking, pls)",
+                                "Search for nhentai nuclear codes"
+                        }
                 ),
                 new GuildlistCommand(eventWaiter),
                 new PingCommand(),
